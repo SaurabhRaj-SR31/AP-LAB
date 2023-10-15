@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointments</title>
+</head>
+<body>
+    <h1>Appointments</h1>
+    <ul>
+        {% for appointment in appointments %}
+            <li>{{ appointment[1] }} - {{ appointment[2] }} - {{ appointment[3] }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Create an Appointment</h2>
+    <form method="POST" action="{{ url_for('appointments') }}">
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required><br>
+        <label for="appointment_date">Appointment Date:</label>
+        <input type="date" id="appointment_date" name="appointment_date" required><br>
+        <label for="appointment_time">Appointment Time:</label>
+        <input type="time" id="appointment_time" name="appointment_time" required><br>
+        <input type="submit" value="Create Appointment">
+    </form>
+</body>
+</html>
